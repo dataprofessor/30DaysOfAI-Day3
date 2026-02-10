@@ -8,7 +8,7 @@ st.title(":material/airwave: Write Streams")
 
 conn = st.secrets["connections"]["snowflake"]
 host = conn.get("host") or f"{conn['account']}.snowflakecomputing.com"
-client = OpenAI(api_key=conn["pat_token"], base_url=f"https://{host}/api/v2/cortex/v1")
+client = OpenAI(api_key=conn["password"], base_url=f"https://{host}/api/v2/cortex/v1")
 
 llm_models = ["claude-3-5-sonnet", "mistral-large", "llama3.1-8b"]
 model = st.selectbox("Select a model", llm_models)
